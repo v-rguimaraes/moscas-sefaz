@@ -360,92 +360,40 @@
             </div>
 
             <div class="Transações">
-                   <!-- item -->
-                   <a href="" class="item">
-                    <div class="detail">
-                        <img src="assets/img/sample/avatar/avatar_fin.png" alt="img" class="image-block imaged w48">
-                        <div>
-                            <strong>Cervejaria Mussum</strong>
-                            <p>Despesas Necessárias</p>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="price text-danger"> - R$ 150,00</div>
-                    </div>
-                </a>
-                <!-- * item -->
-                <!-- item -->
-                <a href="" class="item">
-                    <div class="detail">
-                        <img src="assets/img/sample/avatar/avatar_fin.png" alt="img" class="image-block imaged w48">
-                        <div>
-                            <strong>Casa de Carnes Boi Gourmet</strong>
-                            <p>Despesas Necessárias</p>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="price text-danger">- R$ 189,00</div>
-                    </div>
-                </a>
-                <!-- * item -->
-                <!-- item -->
-                <a href="" class="item">
-                    <div class="detail">
-                        <img src="assets/img/sample/avatar/avatar_fin.png" alt="img" class="image-block imaged w48">
-                        <div>
-                            <strong>Vaquinha Churrasco do Vini</strong>
-                            <p>Transferencia - Pedro</p>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="price">+ R$ 250,00</div>
-                    </div>
-                </a>
-                <!-- * item -->
-                <!-- item -->
-                <a href="" class="item">
-                    <div class="detail">
-                        <img src="assets/img/sample/avatar/avatar_fin.png" alt="img" class="image-block imaged w48">
-                        <div>
-                            <strong>Racho da Pamonha</strong>
-                            <p>Shopping</p>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="price text-danger">- R$ 86,00</div>
-                    </div>
-                </a>
-                <!--
-                <script>
-                let request = $.ajax({
-                    url: 'http://localhost:7071/api/func-get-transactions',
-                    type: 'POST',
-                    dataType: "json"
-                  })
-                  request.done((msg)=>{
-                    console.log(msg[0].descricao)
-                    for (var j=0;j < msg.length;j++){
-                        let html = `
-                        <a href="" class="item">
-                            <div class="detail">
-                                <img src="assets/img/sample/brand/1.jpg" alt="img" class="image-block imaged w48">
-                                <div>
-                                    <strong>${msg[j].descricao}</strong>
-                                    <p>${msg[j].categoria}</p>
-                                </div>
-                            </div>
-                            <div class="right">
-                                <div class="price text-danger">${msg[j].valor}</div>
-                            </div>
-                        </a>`
-                        $(html).appendTo($(".Transações"))
-                    }
-                    
+                   
+                    <script>
+                        let request = $.ajax({
+                            url: 'https://func-app-teste-sefaz.azurewebsites.net/api/func-le-transacoes?code=Y5H2b/P3oUsHdvx5oBjDRVSalbMp3L65rHVu8FprhllzWz1wWPl0Ng==',
+                            type: 'POST',
+                            dataType: 'json'
+                        })
+                        request.done((msg)=>{
+                            for (var j=0; j < msg.length;j++){
 
-                  })
-                </script>
-                -->
-            
+                                let html = `
+                                <a href="" class="item">
+                                    <div class="detail">
+                                        <img src="assets/img/sample/avatar/avatar_fin.png" alt="img" class="image-block imaged w48">
+                                        <div>
+                                            <strong>${msg[j].descricao}</strong>
+                                            <p>${msg[j].categoria}</p>
+                                        </div>
+                                    </div>
+                                    <div class="right">
+                                        <div class="price text-danger">${msg[j].valor}</div>
+                                    </div>
+                                </a>
+
+                                `
+                               $(html).appendTo($(".Transações"))
+                            }
+                        })
+
+                    </script>
+
+                   <!-- item -->
+  
+               
                 <!-- * item -->
             </div>
         </div>
